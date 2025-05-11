@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: mydeployment
+   lables:
+     app: apache
+spec:
+  replica: 5
+  selector:
+    matchLables:
+      app: apache
+  template:
+    metadata:
+       lables: 
+         app: apache
+    spec:
+      containers:
+      - name: my deployment
+        image: intellipaatsai/prt-task:latest
+        ports:
+        - containerPort: 80
+  
